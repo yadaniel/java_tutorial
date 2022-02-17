@@ -1,12 +1,12 @@
 // package example.types;
 // java -p example.types main.java
 
-// create jar file from class file and run it
-// jar cf Main.jar Main.class
-// java -jar Main.jar
-//    will not work, because manifest file is missing
-// java -cp Main.jar Main
-//    call main from Main class
+// rm -f *.{class,jar}
+// javac *.java
+// mkdir META-INF && echo "Main-Class: Main" > META-INF/MANIFEST.MF
+// jar cfm MainManifest.jar META-INF/MANIFEST.MF *.class
+// java -jar MainManifest.jar
+
 
 import java.lang.*;
 import java.util.*;
@@ -53,7 +53,7 @@ public class Main {
         app.test3();
         app.test4();
         app.test5();
-        // app.test6();
+        app.test6();
 
     }
 
@@ -162,21 +162,21 @@ public class Main {
         }
     }
 
-    // public T test6() {
-    //     return new T();
-    // }
+    public Q test6() {
+        return new Q();
+    }
 
 }
 
-// class T {
-//     public T() {}
-//     public static int f_static() {
-//         System.out.printf("T.f()\n");
-//         return 1;
-//     }
-//     public int f() {
-//         System.out.printf("T.f()\n");
-//         return 1;
-//     }
-// }
+class Q {
+    public Q() {}
+    public static int f_static() {
+        System.out.printf("Q.f()\n");
+        return 1;
+    }
+    public int f() {
+        System.out.printf("Q.f()\n");
+        return 1;
+    }
+}
 

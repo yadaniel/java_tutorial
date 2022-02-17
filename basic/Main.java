@@ -1,10 +1,24 @@
 // package example.types;
 // java -p example.types main.java
 
+// create jar file from class file and run it
+// 
+// jar cf Main.jar Main.class
+// java -jar Main.jar
+//    will not work, because manifest file is missing => workaround
+// java -cp Main.jar Main
+//    call main from Main class
+//
+// mkdir META-INF && echo "Main-Class: Main" > META-INF/MANIFEST.MF
+// jar cfm MainManifest.jar META-INF/MANIFEST.MF Main.class
+// java -jar MainManifest.jar
+
 import java.lang.*;
 import java.util.*;
 import java.io.*;
 import java.math.*;
+
+import static java.lang.Math;
 
 import java.lang.Boolean;
 import java.lang.Byte;
@@ -19,19 +33,7 @@ import java.math.BigDecimal;
 import java.lang.String;
 import java.lang.Character;
 
-interface Proc {
-    public void f();
-}
-
-interface FuncInt {
-    public void f(int x);
-}
-
-interface FuncIntInt {
-    public int f(int x);
-}
-
-// without public (import Main) will succeede, but access will raise exception
+// without public (import Main) will succeed, but access will raise exception
 // note: when class is made public, then filename shall be uppercase
 public class Main {
     public static void main(String[] args) {
@@ -46,7 +48,6 @@ public class Main {
         app.test3();
         app.test4();
         app.test5();
-        app.test6();
 
     }
 
@@ -138,40 +139,7 @@ public class Main {
     }
 
     public void test5() {
-        var console = System.console();
-        String ans = console.readLine();
-        ans += ":received";
-        System.out.println(console);
-
-        // lambda needs explicit target type
-        Proc p = () -> {};
-        FuncInt f = (y) -> {};
-        FuncIntInt q = (y) -> {return y;};
-
-        try {
-            var x = 1/0;
-        } catch(Exception e) {
-            System.err.printf("exception caughted: %s\n", e.getMessage());
-        }
-    }
-
-    public T test6() {
-        return new T();
-    }
-
-}
-
-class T {
-    public T() {}
-
-    public static int f_static() {
-        System.out.printf("T.f()\n");
-        return 1;
-    }
-
-    public int f() {
-        System.out.printf("T.f()\n");
-        return 1;
+        System.out.printf("sin(0.0) => %s\n", sin(0.0));
     }
 
 }
