@@ -46,8 +46,35 @@ public class Main {
 
     }
 
+    // (Main/Data)
+    // (set! Main/Data 100)
+    public static int Data = 4321;
+
+    // (Main/data)
     public static int data() {
         return 1234;
+    }
+
+    // (Main/data 1)
+    public static int data(int i) {
+        return i;
+    }
+
+    // (def m (Main.))
+    // (.ID m)
+    //
+    // (set! (.ID m) 1000)
+    // (.ID m)
+    public int ID = 4321;
+
+    // (.id m)
+    public  int id() {
+        return 1234;
+    }
+
+    // (.id m 1)
+    public int id(int i) {
+        return i;
     }
 
     // create from clojure
