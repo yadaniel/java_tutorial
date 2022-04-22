@@ -28,5 +28,14 @@ java -client -jar clojure.jar
 java -server -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)"
 java -server -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)"
 
+# show flags of JVM
+java -XX:+UnlockExperimentalVMOptions -jar clojure.jar -e "(System/exit 0)" | wc -l
+# 565
+java -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)" | wc -l
+# 681
+java -XX:+UnlockDiagnosticVMOptions -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)" | wc -l
+# 889
+java -XX:+UnlockDiagnosticVMOptions -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)" | wc -l
+# 892
 
 

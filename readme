@@ -17,3 +17,9 @@
 # JVM = java virtual machine
 # JVM = java virtual machine
 #
+# JVM options
+#   * hotspot
+#   * graalVM
+#   * kaffe (GPL)
+#   * dalvik (asteroid)
+#
