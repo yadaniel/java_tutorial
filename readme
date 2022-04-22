@@ -1,1 +1,19 @@
 # basic java syntax and ideas
+
+# using jshell
+# System.out.println("here");
+# int s = 0; for(int i=0; i<10; i++) { s+=i; }
+
+# versions and editions
+# LTS = long term support => java8, java11
+# editions 
+#   * SE = standard edition => full API
+#   * EE = enterprise edition => additional optimized API
+#   * ME = micro edition => java for minimalistic environments
+#   * FX = ??? => java GUI adapted to accelerated HW
+#
+# JDK/java SDK = development kit with JVM/JRE
+# JRE = java runtime environment (JVM + libraries)
+# JVM = java virtual machine
+# JVM = java virtual machine
+#

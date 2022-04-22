@@ -1,0 +1,32 @@
+# start clojure from command line
+clojure -e '(do (print "here")(flush)(System/exit 0))'
+
+# navigate to clojure directory
+$cd /usr/share/java
+
+# start as jar
+java -jar clojure.jar
+
+# deactivate JIT
+java -Xint -jar clojure.jar
+
+# measure time with 
+time java -jar clojure.jar -e '(System/exit 0)'
+real    0m0.529s
+user    0m1.063s
+sys     0m0.281s
+time java -Xint -jar clojure.jar -e '(System/exit 0)'
+real    0m0.977s
+user    0m0.859s
+sys     0m0.188s
+
+# start JVM with preset profiles for RAM and startup speed
+java -server -jar clojure.jar
+java -client -jar clojure.jar
+
+# show flags
+java -server -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)"
+java -server -XX:+PrintFlagsFinal -jar clojure.jar -e "(System/exit 0)"
+
+
+
